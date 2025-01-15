@@ -1,0 +1,183 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  box-sizing: content-box;
+  background: black;
+}
+
+.cabecera {
+  text-align: center;
+  color: green;
+  background: grey;
+  font-size: 5rem;
+}
+
+.personajes figcaption {
+  text-align: center;
+  color: red;
+  font-size: 2rem;
+}
+
+/*
+La propiedad flex-direction que podrá tomar los siguientes valores:
+
+- row: es la opción por defecto y ajustará los elementos flexibles de izquierda a derecha.
+- row-reverse: igual que la anterior pero de derecha a izquierda.
+- column: ajustará los elementos flexibles en columna, de arriba a abajo.
+- column-reverse: igual que la de arriba pero de abajo a arriba.
+*/
+/*.personajes{
+    display: flex;
+    flex-direction: row;
+}*/
+/*
+Hemos visto como antes, por defecto y sin indicar ninguna anchura, 
+los elementos flexibles adecuaban su tamaño a su contenido (si no les dábamos anchura) y 
+se ponían todos a la izquierda permaneciendo siempre así aunque el ancho de la pantalla sea muy pequeño. 
+Esto puede provocar desajustes en pantallas muy pequeñas. Este contratiempo podemos controlarlo usando la propiedad flex-wrap y eligiendo uno de los siguientes valores:
+
+-no-wrap: es el valor por defecto y fuerza para que siempre los elementos estén en 
+la misma línea aunque esto suponga que se salgan del contenedor (les haya dado o no les haya dado anchura).
+-wrap: provoca un salto de línea si la anchura de los elementos (fijada por nosotros o por el contenedor) es superior a la del contenedor.
+-wrap-reverse: lo mismo que arriba pero de abajo a arriba.
+*/
+/*.personajes{
+    display: flex;
+    flex-wrap: wrap;
+}*/
+/*Alineación horizontal de los elementos flexibles
+Podemos alinear horizontalmente los elementos flexibles, tengan o 
+no tengan establecida una anchura, añadiendo la propiedad justify-content al elemento contenedor. 
+Esta propiedad puede tener 6 valores distintos:
+
+- flex-start: Los elementos flexibles se sitúan al principio.
+- flex-end: Los elementos flexibles se situán al final.
+- center: Los elementos se centran horizontalmente
+- space-beetween: Distribuye el espacio restante entre los elementos pero el primero y el último están en los bordes.
+- space-around: Distribuye el espacio restante entre los elementos pero no tiene en cuenta la distancia a los bordes.
+- space-evenly: Distribuye el espacio restante entre los elementos y tiene en cuenta la distancia a los bordes.
+*/
+/*.personajes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}*/
+/*
+Alineación vertical de los elementos flexibles
+Podemos alinear verticalmente los elementos flexibles añadiendo la propiedad align-items que puede tomar los siguientes valores:
+
+- flex-start: Los elementos se ponen junto al borde superior.
+- flex-end: Los elementos se ponen junto al borde inferior.
+- center: Los elementos flexibles se centran verticalmente.
+- stretch: Los elementos crecen en altura para ocupar toda la altura del contenedor flexible. No deben tener altura fija establecida.
+- baseline: Los elementos se alinean en relación con la primera línea de texto que posean los elementos flexibles.
+*/
+/*.personajes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: baseline;
+    height: 75vh;
+}*/
+/*
+Alineación vertical - Wrap (cuando tengo varias líneas)
+Si he usado la propiedad flex-wrap:wrap y resulta que tengo varias líneas de elementos 
+flexibles también puedo alinearlas usado la propiedad CSS align-content con valores que son análogos a los vistos antes:
+
+flex-start
+flex-end
+center
+stretch
+space-between
+space-around
+*/
+/*.personajes{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    align-items: baseline;
+    height: 75vh;
+}*/
+/*El orden de los elementos flexibles.
+Los elementos flexibles se muestran dentro del contenedor flex en el mismo orden en que están escritos en nuestro código HTML.
+
+Si queremos modificar esto debemos añadir la propiedad CSS order a los elementos cuyo orden queremos modificar.
+
+Por defecto este valor es 0 y se mostrarán en orden ascendente (los de menor valor primero). 
+En caso de empate se muestra antes el que primero estuviera en el código.
+*/
+/*.personajes{
+    display: flex;
+    flex-wrap: wrap;
+
+    height: 75vh;
+}
+.personajes :nth-child(1){
+
+    order:3;
+}
+.personajes :nth-child(2){
+    order:1;
+}
+.personajes :nth-child(3){
+    order:2;
+}
+.personajes :nth-child(4){
+    order:4;
+}*/
+/*
+Ajustando el tamaño de los elementos flexibles.
+Para controlar el tamañó de los elementos flexibles disponemos de varias propiedades relacionadas interesantes:
+
+- flex-grow: que sirve para indicar, mediante un número, el factor de crecimiento de un elemento flexible 
+cuando se distribuye entre los elementos flexibles el espacio restante. 
+Por defecto es 1 pero si quiero que un elemento participe en el reparto debo añadirle esta propiedad.
+- flex-shrink: que sirve para indicar, mediante un número el factor de contracción de un elemento flexible cuando el tamaño de todos sobrepasa el tamaño del contenedor. Por defecto es 1 pero si quiero que un elemento participe en la contracción debo añadirle esta propiedad.
+- flex-basic: que sirve para indicar el tamaño de un elemento antes de que el espacio restante (negativo positivo) se distribuya. Por defecto el valor de esta propiedad es auto y hace que la anchura del elemento flexible se ajusta a su contenido.
+Debemos de tener en cuenta que para una correcta maquetación debemos considerar las tres propiedades de manera conjunta. Además, se puede expresar de manera unitaria con la propiedad CSS flex. Por ejemplo:
+
+
+flex: grow-factor shrink-factor flex-basis-value;
+*/
+figure {
+  background: green;
+}
+
+.personajes {
+  display: flex;
+  flex-wrap: wrap;
+  height: 75vh;
+}
+
+.personajes :nth-child(1) {
+  flex-basis: 10%;
+  flex-grow: 2;
+}
+
+.personajes :nth-child(2) {
+  flex-basis: 10%;
+  flex-grow: 2;
+}
+
+.personajes :nth-child(3) {
+  flex-basis: 10%;
+  flex-grow: 1;
+}
+
+.personajes :nth-child(4) {
+  flex-basis: 10%;
+  flex-grow: 4;
+}
+
+/*
+En ocasiones puedo necesitar que un elemento flexible tenga una alineación vertical diferente al resto. 
+En este caso, en el elemento para el que quiero una alineación diferente, debo añadir la propiedad CSS align-self 
+que puede tomar los mismo valores (y con el mismo significado) que la propiedad align-items.
+
+flex-start
+flex-end
+center
+strecth (no debe tener altura establecida)
+baseline
+NOTA: Los elementos flex no hace caso a la propiedad vertical-align.
+*//*# sourceMappingURL=styles.css.map */
